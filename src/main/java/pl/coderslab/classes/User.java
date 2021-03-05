@@ -1,6 +1,4 @@
-package pl.coderslab.program;
-
-import java.util.Scanner;
+package pl.coderslab.classes;
 
 public class User {
 

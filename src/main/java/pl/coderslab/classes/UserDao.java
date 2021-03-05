@@ -1,4 +1,4 @@
-package pl.coderslab.program;
+package pl.coderslab.classes;
 
 import org.mindrot.jbcrypt.BCrypt;
 import pl.coderslab.utils.DBUtils;
