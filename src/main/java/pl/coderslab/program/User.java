@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class User {
 
     protected int id;
-    protected String Username;
+    protected String username;
     protected String email;
     protected String password;
 
@@ -26,11 +26,11 @@ public class User {
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     public String getPassword() {

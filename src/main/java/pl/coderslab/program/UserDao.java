@@ -22,16 +22,12 @@ public class UserDao {
 
         UserDao userDao = new UserDao();
         User user = new User();
-        user.setUsername("TestUser");
-        user.setEmail("TestEmail");
-        user.setPassword("TestPassword");
-        userDao.create(user);
     }
 
     public User create(User user){
         try (Connection connection = DBUtils.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(CREATE_USER_QUERY, PreparedStatement.RETURN_GENERATED_KEYS)){
-            preparedStatement.setString(1, user.Username);
+            preparedStatement.setString(1, user.username);
             preparedStatement.setString(2, user.email);
             String haspassword = hashPassword(user.password);
             preparedStatement.setString(3, haspassword);
@@ -61,7 +57,7 @@ public class UserDao {
             while (rs.next()) {
                 user.id = rs.getInt("id");
                 user.email = rs.getString("email");
-                user.Username = rs.getString("username");
+                user.username = rs.getString("username");
                 user.password = rs.getString("password");
             }
             return user;
@@ -76,7 +72,7 @@ public class UserDao {
     public void update (User user){
         try ( Connection connection = DBUtils.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER_QUERY)){
-            preparedStatement.setString(1, user.Username);
+            preparedStatement.setString(1, user.username);
             preparedStatement.setString(2, user.password);
             preparedStatement.setString(3, user.email);
             preparedStatement.setString(4, Integer.toString(user.id));
